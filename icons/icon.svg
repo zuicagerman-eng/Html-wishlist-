@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="fondo" cx="50%" cy="36%" r="78%">
+      <stop offset="0" stop-color="#ec3d55"/>
+      <stop offset="0.6" stop-color="#b50d29"/>
+      <stop offset="1" stop-color="#7d0a1c"/>
+    </radialGradient>
+    <linearGradient id="verde" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4fd18a"/>
+      <stop offset="1" stop-color="#0f5c35"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#fondo)"/>
+  <g fill="#fff">
+    <circle cx="70" cy="90" r="7" opacity=".8"/><circle cx="440" cy="70" r="6" opacity=".7"/>
+    <circle cx="420" cy="200" r="8" opacity=".75"/><circle cx="92" cy="260" r="6" opacity=".7"/>
+    <circle cx="452" cy="330" r="5" opacity=".6"/><circle cx="60" cy="400" r="8" opacity=".7"/>
+    <circle cx="150" cy="150" r="4" opacity=".6"/><circle cx="370" cy="120" r="4" opacity=".6"/>
+    <circle cx="465" cy="455" r="6" opacity=".6"/><circle cx="40" cy="190" r="4" opacity=".6"/>
+  </g>
+  <path d="M0 470 Q128 430 256 456 T512 448 V512 H0Z" fill="#fff" opacity=".95"/>
+  <g transform="translate(112 66) scale(2.4)">
+    <rect x="52" y="122" width="16" height="20" rx="3" fill="#6b3d1c"/>
+    <g fill="url(#verde)" stroke="url(#verde)" stroke-width="8" stroke-linejoin="round">
+      <path d="M60 66 L106 122 H14 Z"/>
+      <path d="M60 40 L96 92 H24 Z"/>
+      <path d="M60 18 L86 60 H34 Z"/>
+    </g>
+    <path d="M34 60 Q60 74 86 56 M26 94 Q60 112 96 88" fill="none" stroke="#ffd54a" stroke-width="2.5" stroke-dasharray="1 5" stroke-linecap="round"/>
+    <circle cx="48" cy="50" r="4.5" fill="#fff"/><circle cx="73" cy="46" r="4" fill="#5cc2ff"/>
+    <circle cx="60" cy="74" r="5" fill="#ffd54a"/><circle cx="38" cy="84" r="4.5" fill="#5cc2ff"/>
+    <circle cx="82" cy="82" r="4.5" fill="#fff"/><circle cx="28" cy="114" r="5" fill="#ffd54a"/>
+    <circle cx="56" cy="106" r="4.5" fill="#ff8a9a"/><circle cx="90" cy="112" r="5" fill="#fff"/>
+    <circle cx="74" cy="100" r="4" fill="#c07cf5"/>
+    <path d="M60 3 L62.7 10.3 L70.5 10.6 L64.4 15.4 L66.5 22.9 L60 18.6 L53.5 22.9 L55.6 15.4 L49.5 10.6 L57.3 10.3 Z" fill="#ffd54a" stroke="#fff3b0" stroke-width="1.2" stroke-linejoin="round"/>
+  </g>
+</svg>
