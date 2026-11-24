@@ -749,6 +749,7 @@ a { color: inherit; }
   var URL_VALIDA = /^https?:\/\/\S+\/macros\/s\/[^/\s]+\/(exec|dev)(\?\S*)?$/.test(SCRIPT_URL);
   var MODO_LOCAL = !URL_VALIDA;
   var URL_MAL_PUESTA = SCRIPT_URL !== '' && !URL_VALIDA;
+  var MUESTRA = CFG.MUESTRA === true;   // vista previa con deseos de ejemplo (no toca la hoja)
   var INSTRUCCIONES = 'https://github.com/zuicagerman-eng/Html-wishlist-#readme';
   var MONEDA = String(CFG.MONEDA == null ? '$' : CFG.MONEDA).trim();
   var AVATARES = ['🦌', '⛄', '🧝', '🐧', '🍪', '🌟'];
@@ -917,6 +918,33 @@ a { color: inherit; }
   var reducido = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function guardarPendientes() { memoria.escribir('pendientes', pendientes); }
+
+  if (MUESTRA && !items.length && !pendientes.length && !memoria.leer('muestra-sembrada', false)) {
+    pendientes = datosDeMuestra().map(function (d) { return { opId: uid(), op: 'add', id: d.id, data: d }; });
+    guardarPendientes();
+    memoria.escribir('muestra-sembrada', true);
+  }
+
+  function datosDeMuestra() {
+    var a = PERSONAS[0], b = PERSONAS[1] || PERSONAS[0], base = Date.now();
+    var filas = [
+      [a, 'Bolsa de piel color café', '💍 Accesorios', 3, 1200, 'https://www.liverpool.com.mx', 'La que vimos en el centro 👀', b, 'reservado'],
+      [a, 'Perfume floral', '💄 Belleza', 2, 1850.5, '', 'Tamaño de 50 ml', b, 'comprado'],
+      [a, 'Viaje a la playa', '✈️ Experiencias', 3, null, '', '', '', ''],
+      [a, 'Pijama navideña', '👗 Ropa', 2, 450, '', 'Talla M, la de renos 🦌', '', ''],
+      [a, 'Taza para chocolate caliente', '🏠 Casa', 1, 150, '', '', '', ''],
+      [b, 'Tenis para correr', '👟 Zapatos', 3, 2300, '', 'Talla 27, color negro', a, 'reservado'],
+      [b, 'Libro: El nombre del viento', '📚 Libros', 2, 399, '', '', '', ''],
+      [b, 'Audífonos inalámbricos', '📱 Tecnología', 2, 1500, 'https://www.amazon.com.mx', 'Con cancelación de ruido', '', '']
+    ];
+    return filas.map(function (f, i) {
+      return {
+        id: 'muestra' + (i + 1), persona: f[0], titulo: f[1], categoria: f[2], prioridad: f[3], precio: f[4],
+        link: f[5], notas: f[6], reservadoPor: f[7], estado: f[8],
+        creado: new Date(base - (filas.length - i) * 60000).toISOString(), actualizado: ''
+      };
+    });
+  }
 
   /** Lo que se ve = lo último de la hoja + los cambios que aún no se suben. */
   function vista() {
@@ -1126,7 +1154,11 @@ a { color: inherit; }
     $('#btn-nieve').textContent = '❄️ Nieve: ' + (conNieve ? 'sí' : 'no');
 
     var aviso = $('#aviso-config');
-    if (URL_MAL_PUESTA) {
+    if (MUESTRA) {
+      aviso.className = 'aviso';
+      aviso.innerHTML = '<b>👀 Muestra con deseos de ejemplo</b><p>Prueba todo: agrega, edita, aparta regalos y toca "cambiar" para ver la lista desde el otro lado (el modo sorpresa). Nada de esto llega a la hoja de Google.</p>';
+      aviso.hidden = false;
+    } else if (URL_MAL_PUESTA) {
       aviso.className = 'aviso error';
       aviso.innerHTML = '<b>⚠️ La URL de config.js no se ve bien</b><p>Debe ser la "URL de la aplicación web" de Apps Script y terminar en <code>/exec</code>. Mientras tanto, todo se guarda solo en este teléfono.</p><a href="' + INSTRUCCIONES + '" target="_blank" rel="noopener">Ver instrucciones →</a>';
       aviso.hidden = false;
@@ -1258,7 +1290,8 @@ a { color: inherit; }
   function pintarEstado() {
     var tipo, ico, texto;
     var n = pendientes.length;
-    if (URL_MAL_PUESTA) { tipo = 'error'; ico = '⚠️'; texto = 'Revisa la URL en config.js'; }
+    if (MUESTRA) { tipo = 'local'; ico = '👀'; texto = 'Muestra · nada se guarda en la hoja'; }
+    else if (URL_MAL_PUESTA) { tipo = 'error'; ico = '⚠️'; texto = 'Revisa la URL en config.js'; }
     else if (MODO_LOCAL) { tipo = 'local'; ico = '🧪'; texto = 'Modo prueba · solo en este teléfono'; }
     else if (sincronizando) { tipo = 'trabajando'; ico = '⏳'; texto = 'Guardando en Google Sheets…'; }
     else if (navigator.onLine === false) {
@@ -1275,7 +1308,8 @@ a { color: inherit; }
     el.title = MODO_LOCAL ? '' : 'Toca para actualizar';
 
     var pie = $('#pie-sync');
-    pie.textContent = MODO_LOCAL ? 'Los datos están en este teléfono (modo prueba).' :
+    pie.textContent = MUESTRA ? 'Vista de muestra con deseos de ejemplo.' :
+      MODO_LOCAL ? 'Los datos están en este teléfono (modo prueba).' :
       ultimaSync ? 'Última sincronización con Google Sheets: ' + haceCuanto(ultimaSync) + '.' : '';
   }
 
@@ -1521,6 +1555,7 @@ a { color: inherit; }
       f.elements.namedItem('nombre').focus();
     },
     'sincronizar': function () {
+      if (MUESTRA) { avisar('👀 Es una muestra: aquí nada se sube a Google Sheets'); return; }
       if (MODO_LOCAL) { window.open(INSTRUCCIONES, '_blank', 'noopener'); return; }
       errorActual = null;
       intentos = 0;
@@ -1676,7 +1711,7 @@ a { color: inherit; }
     }, 30000);
   }
 
-  if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+  if (!MUESTRA && 'serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
     window.addEventListener('load', function () {
       navigator.serviceWorker.register('sw.js').catch(function () { /* sin modo offline, no pasa nada */ });
     });
