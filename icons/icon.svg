@@ -1,24 +1,58 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <defs>
-    <radialGradient id="fondo" cx="50%" cy="36%" r="78%">
-      <stop offset="0" stop-color="#ec3d55"/>
-      <stop offset="0.6" stop-color="#b50d29"/>
-      <stop offset="1" stop-color="#7d0a1c"/>
-    </radialGradient>
+    <linearGradient id="noche" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0a1330"/>
+      <stop offset=".62" stop-color="#16294d"/>
+      <stop offset="1" stop-color="#0d2c27"/>
+    </linearGradient>
     <linearGradient id="verde" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#4fd18a"/>
       <stop offset="1" stop-color="#0f5c35"/>
     </linearGradient>
+    <linearGradient id="cera" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#cfc09a"/>
+      <stop offset=".4" stop-color="#fffaf0"/>
+      <stop offset="1" stop-color="#c4b28a"/>
+    </linearGradient>
+    <radialGradient id="llama" cx="50%" cy="70%" r="60%">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".35" stop-color="#ffe48a"/>
+      <stop offset=".8" stop-color="#ffa23a"/>
+      <stop offset="1" stop-color="#ff8a2a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="halo">
+      <stop offset="0" stop-color="#ffcf70" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#ffcf70" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="brillo-arbol" cx="50%" cy="45%" r="50%">
+      <stop offset="0" stop-color="#ffd27a" stop-opacity=".28"/>
+      <stop offset="1" stop-color="#ffd27a" stop-opacity="0"/>
+    </radialGradient>
   </defs>
-  <rect width="512" height="512" fill="url(#fondo)"/>
-  <g fill="#fff">
-    <circle cx="70" cy="90" r="7" opacity=".8"/><circle cx="440" cy="70" r="6" opacity=".7"/>
-    <circle cx="420" cy="200" r="8" opacity=".75"/><circle cx="92" cy="260" r="6" opacity=".7"/>
-    <circle cx="452" cy="330" r="5" opacity=".6"/><circle cx="60" cy="400" r="8" opacity=".7"/>
-    <circle cx="150" cy="150" r="4" opacity=".6"/><circle cx="370" cy="120" r="4" opacity=".6"/>
-    <circle cx="465" cy="455" r="6" opacity=".6"/><circle cx="40" cy="190" r="4" opacity=".6"/>
+  <rect width="512" height="512" fill="url(#noche)"/>
+  <g fill="#fff8e0">
+    <circle cx="150" cy="60" r="3" opacity=".9"/><circle cx="330" cy="40" r="2.5" opacity=".8"/>
+    <circle cx="250" cy="28" r="2" opacity=".7"/><circle cx="470" cy="150" r="2.5" opacity=".8"/>
+    <circle cx="36" cy="200" r="2.5" opacity=".7"/><circle cx="380" cy="170" r="2" opacity=".7"/>
+    <circle cx="120" cy="190" r="2" opacity=".6"/><circle cx="460" cy="320" r="2.5" opacity=".6"/>
+    <circle cx="44" cy="350" r="2" opacity=".6"/><circle cx="200" cy="120" r="1.8" opacity=".6"/>
   </g>
-  <path d="M0 470 Q128 430 256 456 T512 448 V512 H0Z" fill="#fff" opacity=".95"/>
+  <ellipse cx="256" cy="270" rx="200" ry="190" fill="url(#brillo-arbol)"/>
+  <g>
+    <circle cx="84" cy="94" r="44" fill="url(#halo)"/>
+    <rect x="73" y="100" width="22" height="78" rx="3" fill="url(#cera)"/>
+    <ellipse cx="84" cy="88" rx="8" ry="14" fill="url(#llama)"/>
+    <circle cx="428" cy="78" r="38" fill="url(#halo)"/>
+    <rect x="418" y="84" width="20" height="68" rx="3" fill="url(#cera)"/>
+    <ellipse cx="428" cy="73" rx="7" ry="12" fill="url(#llama)"/>
+    <circle cx="448" cy="246" r="28" fill="url(#halo)"/>
+    <rect x="441" y="250" width="14" height="46" rx="2" fill="url(#cera)"/>
+    <ellipse cx="448" cy="242" rx="5" ry="9" fill="url(#llama)"/>
+    <circle cx="62" cy="280" r="26" fill="url(#halo)"/>
+    <rect x="55" y="284" width="14" height="44" rx="2" fill="url(#cera)"/>
+    <ellipse cx="62" cy="276" rx="5" ry="9" fill="url(#llama)"/>
+  </g>
+  <path d="M0 462 Q128 428 256 452 T512 444 V512 H0Z" fill="#eef4f8"/>
   <g transform="translate(112 66) scale(2.4)">
     <rect x="52" y="122" width="16" height="20" rx="3" fill="#6b3d1c"/>
     <g fill="url(#verde)" stroke="url(#verde)" stroke-width="8" stroke-linejoin="round">
@@ -27,10 +61,10 @@
       <path d="M60 18 L86 60 H34 Z"/>
     </g>
     <path d="M34 60 Q60 74 86 56 M26 94 Q60 112 96 88" fill="none" stroke="#ffd54a" stroke-width="2.5" stroke-dasharray="1 5" stroke-linecap="round"/>
-    <circle cx="48" cy="50" r="4.5" fill="#fff"/><circle cx="73" cy="46" r="4" fill="#5cc2ff"/>
+    <circle cx="48" cy="50" r="4.5" fill="#e2475b"/><circle cx="73" cy="46" r="4" fill="#5cc2ff"/>
     <circle cx="60" cy="74" r="5" fill="#ffd54a"/><circle cx="38" cy="84" r="4.5" fill="#5cc2ff"/>
-    <circle cx="82" cy="82" r="4.5" fill="#fff"/><circle cx="28" cy="114" r="5" fill="#ffd54a"/>
-    <circle cx="56" cy="106" r="4.5" fill="#ff8a9a"/><circle cx="90" cy="112" r="5" fill="#fff"/>
+    <circle cx="82" cy="82" r="4.5" fill="#e2475b"/><circle cx="28" cy="114" r="5" fill="#ffd54a"/>
+    <circle cx="56" cy="106" r="4.5" fill="#e2475b"/><circle cx="90" cy="112" r="5" fill="#fff"/>
     <circle cx="74" cy="100" r="4" fill="#c07cf5"/>
     <path d="M60 3 L62.7 10.3 L70.5 10.6 L64.4 15.4 L66.5 22.9 L60 18.6 L53.5 22.9 L55.6 15.4 L49.5 10.6 L57.3 10.3 Z" fill="#ffd54a" stroke="#fff3b0" stroke-width="1.2" stroke-linejoin="round"/>
   </g>

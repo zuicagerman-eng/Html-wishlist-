@@ -7,14 +7,21 @@ La página vive en **GitHub Pages** y todo se guarda en una **hoja de Google She
 
 ## ✨ Qué hace
 
-- 🎅 **¿Quién eres?** Cada quien elige su nombre una sola vez en su teléfono.
-- ✍️ **Deseos completos:** qué es, tipo de regalo, cuánto lo quieres (⭐ a ⭐⭐⭐), precio aproximado, link de la tienda y notas (talla, color…).
-- 🎁 **Apartar regalos:** en la lista del otro tocas *"Yo se lo regalo"* y después *"Ya lo compré"*.
-- 🤫 **Modo sorpresa:** en tu propia lista **nunca** ves qué te apartaron o compraron.
+Una Navidad mágica de castillo: cielo estrellado con nieve, velas flotantes y deseos escritos en pergamino. Todos los dibujos son originales.
+
+- ✉️ **Cartas con lacre:** cada quien abre su carta (Andrea o David) una sola vez en su teléfono.
+- ✍️ **Deseos completos:** qué es, tipo de regalo, cuánto lo quieres (❤️ a ❤️❤️❤️), precio aproximado (con una gema que cambia de color según el precio), link de la tienda y notas (talla, color…).
+- 🎁 **Apartar regalos:** en la lista del otro tocas *"Yo se lo regalo"*, se abre un cofre del tesoro y el deseo queda sellado con lacre. Después marcas *"Ya lo compré"*.
+- 🤫 **Hechizo sorpresa:** en tu propia lista **nunca** ves qué te apartaron o compraron.
+- 🦉 **Lechuza mensajera:** cruza la pantalla con tu carta cada vez que agregas un deseo.
+- 🧚 **Hada guía:** tócala y te da consejos.
+- 🟡 **Esfera dorada con alas:** de vez en cuando cruza volando… ¡atrápala! La página lleva la cuenta.
+- 🕯️ **Corona de Adviento:** se enciende una vela cada domingo de Adviento, junto a la cuenta regresiva a Navidad.
+- 🪄 En la compu, el cursor es una varita que deja chispas.
 - 👀 **Familia y amigos** pueden entrar como invitados para ver las listas y apartar regalos (no se duplican: si dos aprietan al mismo tiempo, gana el primero).
 - ☁️ **No se pierde nada:** todo queda en Google Sheets. Sin internet, el teléfono guarda los cambios y los sube solo cuando vuelve la conexión.
 - 📱 **Como app:** se puede agregar a la pantalla de inicio del iPhone y abre aunque no haya internet.
-- ❄️ Nieve, lucecitas, cuenta regresiva a Navidad, esferas navideñas y cursor de bastón de caramelo (en compu).
+- 🔋 Abajo hay un botón **"✨ Magia: sí/no"** para pausar las animaciones y ahorrar batería.
 
 ---
 
