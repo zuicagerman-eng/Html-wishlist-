@@ -3,8 +3,8 @@
  * de la página; si no hay internet, abre la última que guardó. Los datos de
  * Google Sheets NO pasan por aquí (van directo a Google).
  */
-var CACHE = 'wishlist-navidad-v2';
-var BASICOS = ['./', './index.html', './config.js', './manifest.webmanifest', './icons/icon.svg', './icons/apple-touch-icon.png'];
+var CACHE = 'wishlist-navidad-v3';
+var BASICOS = ['./', './index.html', './config.js', './manifest.webmanifest', './icons/icon.svg', './icons/apple-touch-icon.png', './img/hogwarts.png', './img/zelda.png'];
 
 self.addEventListener('install', function (e) {
   e.waitUntil(caches.open(CACHE).then(function (c) {

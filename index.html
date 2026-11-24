@@ -437,12 +437,21 @@ a { color: inherit; }
   box-shadow: 0 0 0 3px rgba(150, 18, 38, .85), 0 4px 8px rgba(0, 0, 0, .35), inset 0 2px 3px rgba(255, 255, 255, .25), inset 0 -3px 5px rgba(0, 0, 0, .35);
 }
 .mono::before { content: ''; position: absolute; inset: 5px; border: 1.5px dashed rgba(255, 210, 210, .42); border-radius: 50%; }
-.mono.verde {
+.mono.espada {
   color: #dfffe8;
   background: radial-gradient(circle at 35% 30%, #4fc277, #217a42 55%, #10391f);
   box-shadow: 0 0 0 3px rgba(26, 100, 52, .85), 0 4px 8px rgba(0, 0, 0, .35), inset 0 2px 3px rgba(255, 255, 255, .25), inset 0 -3px 5px rgba(0, 0, 0, .35);
 }
-.mono.verde::before { border-color: rgba(210, 255, 220, .45); }
+.mono.espada::before { border-color: rgba(210, 255, 220, .45); }
+.mono.oro {
+  color: #5a3d00;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .45);
+  background: radial-gradient(circle at 35% 30%, #fff0b3, #e0ad2f 55%, #8a5f0a);
+  box-shadow: 0 0 0 3px rgba(168, 118, 28, .9), 0 4px 8px rgba(0, 0, 0, .35), inset 0 2px 3px rgba(255, 255, 255, .45), inset 0 -3px 5px rgba(0, 0, 0, .3);
+}
+.mono.oro::before { border-color: rgba(90, 60, 0, .35); }
+.mono.invitado { background: radial-gradient(circle at 35% 30%, #b38af0, #6b3fa0 55%, #3a1f63); box-shadow: 0 0 0 3px rgba(80, 40, 130, .85), 0 4px 8px rgba(0, 0, 0, .35), inset 0 2px 3px rgba(255, 255, 255, .25); }
+.mono .ico { width: 15px; height: 28px; }
 .sellando .mono { animation: estampar .55s cubic-bezier(.3, 1.6, .5, 1) both; }
 @keyframes estampar { from { transform: scale(2.4) rotate(-25deg); opacity: 0; } 60% { opacity: 1; } }
 .acciones { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 13px; }
@@ -618,7 +627,7 @@ a { color: inherit; }
 .cofre-escena { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: 16px; }
 .cofre-escena.cerrando { animation: desvanecer .25s ease forwards; }
 .cofre-fondo { position: absolute; inset: 0; background: radial-gradient(circle at 50% 45%, rgba(20, 32, 64, .6), rgba(2, 6, 14, .92)); animation: aparecer .3s ease both; }
-.cofre-centro { position: relative; width: 300px; max-width: 100%; height: 410px; }
+.cofre-centro { position: relative; width: 300px; max-width: 100%; height: 450px; }
 .rayos {
   position: absolute;
   left: 50%;
@@ -799,9 +808,101 @@ a { color: inherit; }
   .deseo { padding: 24px 22px 20px; }
 }
 
+/* ── Hogwarts ✦ Hyrule: íconos, escudos y detalles de cada quien ── */
+.ico { display: inline-block; flex: 0 0 auto; vertical-align: middle; height: 1.6em; width: .9em; overflow: visible; }
+.ico-espada { width: .56em; }
+.pestanas .ava .ico { height: 26px; width: 15px; }
+.pestanas .ava .ico-espada { width: 10px; }
+.hola .ico { height: 30px; width: 17px; }
+.hola .ico-espada { width: 11px; }
+.pestanas button[aria-selected="true"][data-tema="espada"] {
+  background: linear-gradient(180deg, var(--esmeralda-claro), var(--esmeralda));
+  box-shadow: 0 4px 14px rgba(47, 143, 78, .45), inset 0 0 0 2px var(--oro);
+}
+body[data-tema="espada"] .fab {
+  background:
+    linear-gradient(180deg, var(--esmeralda-claro), var(--esmeralda)) padding-box,
+    conic-gradient(from var(--giro), #fff3c4, #a8761c, #ffe9a8, #8a5a10, #fff3c4) border-box;
+}
+.fab .ico { height: 28px; width: 16px; }
+.fab .ico-espada { width: 10px; }
+
+.duo { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 10px; max-width: 360px; margin: 14px auto 0; }
+.duo-lado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  padding: 12px 6px 9px;
+  border: 1px solid rgba(242, 196, 92, .28);
+  border-radius: 18px;
+  background: rgba(5, 12, 28, .5);
+  color: var(--luz);
+  transition: transform .15s ease, border-color .15s ease;
+}
+.duo-lado:active { transform: scale(.96); }
+.duo-lado img { display: block; height: 68px; width: auto; filter: drop-shadow(0 0 12px rgba(255, 210, 120, .35)); animation: flotar 6s ease-in-out infinite; }
+.duo-lado[data-tema="espada"] img { animation-delay: -3s; }
+.duo-lado.toque img { animation: brinco .5s cubic-bezier(.3, 1.6, .5, 1); }
+@keyframes brinco { 40% { transform: scale(1.18) rotate(-6deg); } }
+.duo-nombre { display: inline-flex; align-items: center; gap: 6px; font: 400 21px var(--f-libro); color: var(--oro-claro); }
+.duo-lado small { font: 800 11px var(--f-ui); letter-spacing: .1em; text-transform: uppercase; color: var(--oro); }
+.duo-y { font: 900 24px var(--f-magia); color: var(--oro); }
+
+.emblema-lista { height: 36px; width: auto; margin-right: 8px; vertical-align: -9px; filter: drop-shadow(0 0 8px rgba(255, 210, 120, .3)); }
+
+.estampilla { position: absolute; right: 6%; top: 8%; z-index: 5; height: 38%; width: auto; padding: 2px; border: 1px dashed #b88a2a; background: #fffaf0; transform: rotate(7deg); box-shadow: 0 2px 4px rgba(0, 0, 0, .25); }
+.carta-mundo { font: 800 11px var(--f-ui); letter-spacing: .08em; text-transform: uppercase; color: var(--oro); }
+.lacre .ico { height: 28px; width: 16px; color: #ffe1e1; }
+.lacre .ico-espada { width: 10px; color: #e6ffe9; }
+.tema-espada .lacre { background: radial-gradient(circle at 35% 30%, #4fc277, #217a42 55%, #10391f); box-shadow: 0 0 0 3px rgba(26, 100, 52, .85), 0 3px 6px rgba(0, 0, 0, .45), inset 0 2px 3px rgba(255, 255, 255, .25); }
+
+.burbuja b { display: block; margin-bottom: 2px; color: var(--esmeralda-oscuro); font: 900 15px var(--f-ui); letter-spacing: .02em; }
+.hada:focus { outline: none; }
+.hada:focus-visible { outline: 2px dashed rgba(190, 240, 255, .8); outline-offset: 2px; }
+
+/* Hechizo "Accio" (al apartar un regalo de la lista de Hogwarts) */
+.cofre-escena[data-tipo="hechizo"] .cofre { display: none; }
+.cofre-escena[data-tipo="cofre"] .varita-grande, .cofre-escena[data-tipo="cofre"] .espiral { display: none; }
+.varita-grande { position: absolute; left: 50%; top: 200px; width: 68px; height: 120px; margin-left: -6px; transform-origin: 30% 90%; animation: agitar 1s ease-in-out both; }
+@keyframes agitar {
+  0% { transform: rotate(-70deg) translateY(50px); opacity: 0; }
+  30% { transform: rotate(-35deg); opacity: 1; }
+  55% { transform: rotate(28deg); }
+  78% { transform: rotate(-12deg); }
+  100% { transform: rotate(0deg); }
+}
+.espiral { position: absolute; left: 50%; top: 100px; width: 170px; height: 170px; margin-left: -85px; border: 3px dotted rgba(255, 233, 168, .85); border-radius: 50%; opacity: 0; animation: espiral 1.1s .55s ease-out forwards, girar 3s linear infinite; }
+@keyframes espiral { from { transform: scale(.2); opacity: 0; } 40% { opacity: 1; } to { transform: scale(1); opacity: .75; } }
+.cofre-escena[data-tipo="hechizo"] .objeto { animation-name: volar-accio; animation-duration: .9s; animation-delay: .7s; }
+@keyframes volar-accio {
+  0% { opacity: 0; transform: translate(150px, -170px) scale(.25) rotate(-50deg); }
+  40% { opacity: 1; }
+  100% { opacity: 1; transform: translateY(-36px) scale(1) rotate(0deg); }
+}
+.cartel-emblema { display: block; height: 38px; width: auto; margin: 0 auto 6px; filter: drop-shadow(0 0 10px rgba(255, 210, 120, .5)); }
+
+/* Hada que cruza volando (al agregar un deseo desde Hyrule) */
+.hada-vuelo { position: fixed; left: 0; top: calc(var(--arriba) + 20vh); z-index: 75; width: 46px; height: 46px; pointer-events: none; animation: cruzar 2.6s ease-in-out forwards; }
+
+/* Escena del pie: andén, Espada Maestra en su pedestal y una hoja traviesa */
+.escena-centro { position: relative; width: 100%; max-width: 640px; }
+.anden, .pedestal, .kolog { position: absolute; z-index: 2; padding: 0; border: 0; background: none; color: inherit; }
+.anden { left: 15.5%; bottom: 11%; width: 42px; }
+.anden-letrero { display: block; padding: 3px 3px 2px; border: 2px solid var(--oro); border-radius: 5px; background: #7a1e1e; color: #fff; font: 900 12px/1 var(--f-ui); box-shadow: 0 2px 5px rgba(0, 0, 0, .45); }
+.anden::after { content: ''; display: block; width: 3px; height: 14px; margin: 0 auto; background: #3a2414; }
+.pedestal { left: 77.5%; bottom: 9%; width: 36px; }
+.pedestal::before { content: ''; position: absolute; left: 50%; bottom: 6px; width: 70px; height: 100px; margin-left: -35px; border-radius: 50%; background: radial-gradient(closest-side, rgba(150, 210, 255, .38), rgba(150, 210, 255, 0)); animation: pulso 2.6s ease-in-out infinite; }
+.pedestal .ico { position: relative; display: block; width: 22px; height: 66px; margin: 0 auto -20px; filter: drop-shadow(0 0 6px rgba(160, 215, 255, .8)); }
+.pedestal-piedra { position: relative; display: block; width: 36px; height: 16px; border-radius: 5px 5px 2px 2px; background: linear-gradient(180deg, #a3acb6, #5d6670); box-shadow: inset 0 2px 0 rgba(255, 255, 255, .35), 0 3px 4px rgba(0, 0, 0, .35); }
+.kolog { width: 36px; height: 36px; font-size: 22px; line-height: 36px; transform-origin: 50% 100%; animation: mecer-hoja 2.4s ease-in-out infinite; }
+@keyframes mecer-hoja { 0%, 100% { transform: rotate(-14deg); } 50% { transform: rotate(16deg); } }
+
 /* Sin magia (botón del pie) o movimiento reducido: todo quieto */
 .sin-magia .vela, .sin-magia .llama, .sin-magia .llama-c, .sin-magia .oro, .sin-magia .ventanas rect,
-.sin-magia .bandera, .sin-magia .corazon, .sin-magia .fab, .sin-magia .estrella-brilla { animation-play-state: paused !important; }
+.sin-magia .bandera, .sin-magia .corazon, .sin-magia .fab, .sin-magia .estrella-brilla,
+.sin-magia .duo-lado img, .sin-magia .pedestal::before, .sin-magia .kolog { animation-play-state: paused !important; }
 .sin-magia .hada, .sin-magia .burbuja, .sin-magia .esfera-alada { display: none !important; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -810,6 +911,49 @@ a { color: inherit; }
 </style>
 </head>
 <body>
+<!-- Dibujos reutilizables: la varita (Andrea) y la Espada Maestra (David) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="d-madera" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3b2414"/><stop offset=".5" stop-color="#8a5a2e"/><stop offset="1" stop-color="#3b2414"/></linearGradient>
+    <linearGradient id="d-hoja" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#93a6ba"/><stop offset=".5" stop-color="#f6f9fc"/><stop offset="1" stop-color="#8396ab"/></linearGradient>
+    <radialGradient id="d-punta"><stop offset="0" stop-color="#ffffff"/><stop offset=".4" stop-color="#fff3b0"/><stop offset="1" stop-color="#ffd86b" stop-opacity="0"/></radialGradient>
+  </defs>
+  <symbol id="i-varita" viewBox="-12 0 68 120">
+    <g transform="rotate(28 20 60)">
+      <circle cx="20" cy="8" r="10" fill="url(#d-punta)"/>
+      <path d="M18.6 9 L21.4 9 L23.6 84 L16.4 84Z" fill="url(#d-madera)"/>
+      <path d="M16 84 C14.6 95 15.6 106 20 115 C24.4 106 25.4 95 24 84Z" fill="#4a2e16"/>
+      <rect x="15.2" y="83" width="9.6" height="3.4" rx="1.7" fill="#c9a227"/>
+      <rect x="15.6" y="96" width="8.8" height="2.6" rx="1.3" fill="#8a5a2e"/>
+      <circle cx="20" cy="112" r="3.4" fill="#2e1c0e"/>
+      <path d="M20 1.5 L21.2 6.8 L26.5 8 L21.2 9.2 L20 14.5 L18.8 9.2 L13.5 8 L18.8 6.8Z" fill="#fffbe6"/>
+    </g>
+  </symbol>
+  <symbol id="g-varita" viewBox="-12 0 68 120">
+    <g transform="rotate(28 20 60)" fill="currentColor">
+      <path d="M18.3 7 L21.7 7 L24.2 84 L15.8 84Z"/>
+      <path d="M15.4 84 C14 95 15 106 20 116 C25 106 26 95 24.6 84Z"/>
+      <path d="M20 0 L21.6 4.4 L26 6 L21.6 7.6 L20 12 L18.4 7.6 L14 6 L18.4 4.4Z"/>
+    </g>
+  </symbol>
+  <symbol id="i-espada" viewBox="0 0 40 120">
+    <path d="M20 2 L24.5 7.5 L20 13 L15.5 7.5Z" fill="#5a4bbf" stroke="#2b2266" stroke-width=".8"/>
+    <rect x="17.4" y="12" width="5.2" height="17" rx="1.6" fill="#3b2f7a"/>
+    <path d="M17.4 15.5 l5.2 3 M17.4 20.5 l5.2 3 M17.4 25.5 l5.2 3" stroke="#7b6fe0" stroke-width="1.1"/>
+    <path d="M20 37 C13 36 7 32 3 24 C9 27 13 27.5 16 26.5 L20 29.5 L24 26.5 C27 27.5 31 27 37 24 C33 32 27 36 20 37Z" fill="#5a4bbf" stroke="#2b2266" stroke-width="1"/>
+    <path d="M20 28.5 L22.6 32.5 L20 36.5 L17.4 32.5Z" fill="#ffd84a" stroke="#a8761c" stroke-width=".6"/>
+    <path d="M16.8 37 L23.2 37 L23.2 104 L20 117 L16.8 104Z" fill="url(#d-hoja)" stroke="#4a5a6c" stroke-width=".8"/>
+    <path d="M20 39 V106" stroke="#c4d0dc" stroke-width="1"/>
+  </symbol>
+  <symbol id="g-espada" viewBox="0 0 40 120">
+    <g fill="currentColor">
+      <path d="M20 2 L24.5 7.5 L20 13 L15.5 7.5Z"/>
+      <rect x="17.2" y="12" width="5.6" height="17" rx="1.6"/>
+      <path d="M20 37 C13 36 7 32 3 24 C9 27 13 27.5 16 26.5 L20 29.5 L24 26.5 C27 27.5 31 27 37 24 C33 32 27 36 20 37Z"/>
+      <path d="M16.6 37 L23.4 37 L23.4 104 L20 117 L16.6 104Z"/>
+    </g>
+  </symbol>
+</svg>
 <canvas id="cielo" aria-hidden="true"></canvas>
 <div class="velas" id="velas" aria-hidden="true"></div>
 
@@ -837,6 +981,7 @@ a { color: inherit; }
     <div class="burbuja" id="burbuja" role="status" hidden></div>
     <h1 class="titulo"><span class="l1 oro">Wish List</span><span class="l2 oro">Navideña</span></h1>
     <p class="sub" id="sub"></p>
+    <div class="duo" id="duo"></div>
     <div class="adviento">
       <div class="corona" id="corona" aria-hidden="true"></div>
       <p class="cuenta" id="cuenta"></p>
@@ -858,8 +1003,9 @@ a { color: inherit; }
     <p id="pie-sync"></p>
     <p id="pie-esferas" hidden></p>
   </footer>
-  <div class="escena" aria-hidden="true">
-    <svg class="castillo" viewBox="0 0 400 210" preserveAspectRatio="xMidYMax meet">
+  <div class="escena">
+   <div class="escena-centro">
+    <svg class="castillo" viewBox="0 0 400 210" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
       <defs>
         <radialGradient id="g-halo" cx="50%" cy="70%" r="50%">
           <stop offset="0" stop-color="#ffcf7a" stop-opacity=".3"/>
@@ -909,23 +1055,27 @@ a { color: inherit; }
         <path class="puerta" d="M196 166 V146 Q204 134 212 146 V166 Z"/>
       </g>
       <g fill="#0f3320">
-        <path d="M38 188 L52 150 L66 188Z"/><path d="M43 170 L52 140 L61 170Z"/>
-        <path d="M70 192 L80 162 L90 192Z"/>
-        <path d="M328 188 L344 146 L360 188Z"/><path d="M334 168 L344 136 L354 168Z"/>
-        <path d="M362 194 L371 168 L380 194Z"/>
+        <path d="M12 188 L26 150 L40 188Z"/><path d="M17 170 L26 140 L35 170Z"/>
+        <path d="M44 192 L54 162 L64 192Z"/>
+        <path d="M348 188 L364 146 L380 188Z"/><path d="M354 168 L364 136 L374 168Z"/>
+        <path d="M380 194 L389 168 L398 194Z"/>
       </g>
       <g fill="#eef4f8">
-        <path d="M52 140 L48.6 149 L55.4 149Z"/><path d="M344 136 L340.4 145 L347.6 145Z"/>
-        <path d="M80 162 L77.4 169 L82.6 169Z"/><path d="M371 168 L369 174 L373 174Z"/>
+        <path d="M26 140 L22.6 149 L29.4 149Z"/><path d="M364 136 L360.4 145 L367.6 145Z"/>
+        <path d="M54 162 L51.4 169 L56.6 169Z"/><path d="M389 168 L387 174 L391 174Z"/>
       </g>
       <path d="M0 190 Q100 170 200 182 T400 178 V210 H0Z" fill="#eef4f8"/>
     </svg>
+    <button type="button" class="anden" data-accion="anden" aria-label="Andén nueve y tres cuartos"><span class="anden-letrero">9¾</span></button>
+    <button type="button" class="pedestal" data-accion="pedestal" aria-label="La Espada Maestra en su pedestal"><svg class="ico ico-espada" aria-hidden="true" focusable="false"><use href="#i-espada"/></svg><span class="pedestal-piedra"></span></button>
+    <button type="button" class="kolog" id="kolog" data-accion="kolog" aria-label="Una hoja que se mueve sola">🍃</button>
+   </div>
   </div>
 </div>
 
 <button type="button" class="fab" id="fab" data-accion="agregar" hidden><span aria-hidden="true">🪄</span> Agregar deseo</button>
 
-<button type="button" class="esfera-alada" id="esfera" hidden aria-label="Esfera dorada voladora: ¡atrápala!">
+<button type="button" class="esfera-alada" id="esfera" hidden aria-label="Snitch dorada: ¡atrápala!">
   <svg viewBox="0 0 84 46" aria-hidden="true">
     <defs>
       <radialGradient id="e-oro" cx="38%" cy="32%" r="70%">
@@ -940,8 +1090,6 @@ a { color: inherit; }
     <circle cx="42" cy="27" r="12.5" fill="url(#e-oro)"/>
     <path d="M31 27 Q42 21 53 27" fill="none" stroke="#8a6408" stroke-width=".9" opacity=".7"/>
     <path d="M33 32 Q42 37 51 32" fill="none" stroke="#8a6408" stroke-width=".9" opacity=".5"/>
-    <rect x="38.5" y="11.5" width="7" height="4.5" rx="1.2" fill="#d4a62a" stroke="#8a6408" stroke-width=".6"/>
-    <circle cx="42" cy="9" r="2.4" fill="none" stroke="#d4a62a" stroke-width="1.3"/>
     <circle cx="37.5" cy="22.5" r="2.6" fill="#fff" opacity=".85"/>
   </svg>
 </button>
@@ -951,12 +1099,14 @@ a { color: inherit; }
   <div class="cofre-fondo"></div>
   <div class="cofre-centro">
     <div class="rayos"></div>
+    <div class="espiral"></div>
     <div class="objeto" id="cofre-objeto"></div>
+    <svg class="varita-grande" aria-hidden="true" focusable="false"><use href="#i-varita"/></svg>
     <div class="cofre">
       <div class="tapa"></div>
       <div class="caja"><span class="cerradura"></span></div>
     </div>
-    <div class="cartel"><small>¡Conseguiste un regalo!</small><b id="cofre-titulo"></b><span id="cofre-sub"></span></div>
+    <div class="cartel"><img class="cartel-emblema" id="cofre-emblema" alt="" hidden><small id="cofre-encabezado">¡Conseguiste un regalo!</small><b id="cofre-titulo"></b><span id="cofre-sub"></span></div>
   </div>
 </div>
 
@@ -1021,7 +1171,16 @@ a { color: inherit; }
   var MUESTRA = CFG.MUESTRA === true;   // vista previa con deseos de ejemplo (no toca la hoja)
   var INSTRUCCIONES = 'https://github.com/zuicagerman-eng/Html-wishlist-#readme';
   var MONEDA = String(CFG.MONEDA == null ? '$' : CFG.MONEDA).trim();
-  var AVATARES = ['🦌', '⛄', '🧝', '🐧', '🍪', '🌟'];
+  // Cada quien con su mundo: la 1.ª persona es de Hogwarts (varita) y la 2.ª de Hyrule (Espada Maestra)
+  var SIMBOLOS = ['varita', 'espada'];
+  var EMBLEMAS = { varita: 'img/hogwarts.png', espada: 'img/zelda.png' };
+  var MUNDOS = { varita: 'Hogwarts', espada: 'Hyrule' };
+  var DETALLE = { varita: 'Hogwarts · varita', espada: 'Hyrule · Espada Maestra' };
+  var FRASES = {
+    varita: ['¡Lumos! ✨', '¡Wingardium Leviosa! 🪶', '¡Expecto Patronum! 🦌', '¡Accio regalos! 🎁', '¡Alohomora! 🔓', 'Travesura realizada ✨'],
+    espada: ['¡Es peligroso ir solo! Toma esto ⚔️', '¡Hey! ¡Listen! 🧚', '¡Conseguiste una rupia roja! 💎', '¡Yahaha! ¡Me encontraste! 🍃', 'Da-da-da-daaa 🎶 ¡Un corazón más! ❤️']
+  };
+  var POS_KOLOG = [[7, 34], [89, 30], [21, 40], [92, 6]];   // izquierda %, abajo % dentro del castillo (lejos del botón de agregar)
   var DIACRITICOS = new RegExp('[' + String.fromCharCode(0x300) + '-' + String.fromCharCode(0x36f) + ']', 'g');
   var VS16 = String.fromCharCode(0xFE0F), ZWJ = String.fromCharCode(0x200D);
 
@@ -1050,12 +1209,16 @@ a { color: inherit; }
 
   var CONSEJOS = [
     'En tu propia lista nunca verás qué te van a regalar: es un hechizo sorpresa 🤫',
-    'Toca «Yo se lo regalo» en la lista del otro y abre el cofre 🎁',
-    'Si ves volar una esfera dorada con alas… ¡atrápala! ✨',
+    'Si apartas un regalo de Hyrule se abre un cofre; si es de Hogwarts… ¡Accio! 🪄',
+    'Si ves volar la snitch dorada, ¡atrápala! ✨',
+    'Por ahí hay una hoja traviesa que se mueve sola… búscala 🍃',
+    'Toca los escudos de Hogwarts y Hyrule de arriba 🛡️',
+    'Allá abajo, junto al castillo, la Espada Maestra espera en su pedestal ⚔️',
     'Con «cambiar» puedes entrar como la otra persona.',
     'Cada domingo de Adviento se enciende una vela de la corona 🕯️',
-    'En el iPhone: Compartir → «Agregar a pantalla de inicio» y queda como app 📱',
-    'Los corazones dicen cuánto lo quieres; la gema, cuánto cuesta.'
+    'Los corazones dicen cuánto lo quieres; la rupia, cuánto cuesta 💎',
+    'Abajo, «Nox» pausa la magia para ahorrar batería y «Lumos» la vuelve a prender.',
+    'En el iPhone: Compartir → «Agregar a pantalla de inicio» y queda como app 📱'
   ];
 
   // Velas flotantes: x %, y px, tamaño, opacidad, duración s, retraso s
@@ -1088,6 +1251,14 @@ a { color: inherit; }
   function recortar(s, n) { s = String(s); return s.length > n ? s.slice(0, n - 1) + '…' : s; }
   function plural(n, uno, varios) { return n + ' ' + (n === 1 ? uno : varios); }
   function inicial(s) { var t = String(s || '').trim(); return t ? t.charAt(0).toUpperCase() : ''; }
+  function simbolo(nombre) {
+    var i = PERSONAS.map(clave).indexOf(clave(nombre));
+    return i > -1 ? (SIMBOLOS[i] || null) : null;
+  }
+  function icono(s, glifo) {
+    if (s !== 'varita' && s !== 'espada') return '';
+    return '<svg class="ico ico-' + s + '" aria-hidden="true" focusable="false"><use href="#' + (glifo ? 'g-' : 'i-') + s + '"/></svg>';
+  }
 
   var memoria = {
     leer: function (k, def) {
@@ -1472,19 +1643,18 @@ a { color: inherit; }
     return { encendidas: n, texto: texto };
   }
 
+  // Lechuza blanca de las nieves con la carta en las patas
   var BUHO =
     '<svg viewBox="0 0 120 104" aria-hidden="true">' +
-      '<g class="ala-b izq"><path d="M42 50 Q10 28 2 56 Q22 50 42 64Z" fill="#7a4e2a"/><path d="M30 46 Q16 40 10 50" stroke="#5a3820" fill="none" stroke-width="1.5"/></g>' +
-      '<g class="ala-b der"><path d="M78 50 Q110 28 118 56 Q98 50 78 64Z" fill="#7a4e2a"/><path d="M90 46 Q104 40 110 50" stroke="#5a3820" fill="none" stroke-width="1.5"/></g>' +
-      '<ellipse cx="60" cy="56" rx="24" ry="28" fill="#9a6a3c"/>' +
-      '<ellipse cx="60" cy="64" rx="15" ry="18" fill="#ecd2a8"/>' +
-      '<path d="M53 60q3 3 6 0M61 60q3 3 6 0M56 68q3 3 6 0" stroke="#b08458" fill="none" stroke-width="1.3"/>' +
-      '<path d="M40 36 L45 20 L52 33Z M80 36 L75 20 L68 33Z" fill="#7a4e2a"/>' +
-      '<circle cx="51" cy="44" r="9.5" fill="#fff"/><circle cx="69" cy="44" r="9.5" fill="#fff"/>' +
-      '<circle cx="52" cy="45" r="5" fill="#1b1b1b"/><circle cx="68" cy="45" r="5" fill="#1b1b1b"/>' +
-      '<circle cx="53.6" cy="43.4" r="1.6" fill="#fff"/><circle cx="69.6" cy="43.4" r="1.6" fill="#fff"/>' +
-      '<path d="M56.5 50 L63.5 50 L60 56.5Z" fill="#f2a33a"/>' +
-      '<path d="M52 82l-2 5M56 83v5M64 83v5M68 82l2 5" stroke="#f2a33a" stroke-width="2.2" stroke-linecap="round"/>' +
+      '<g class="ala-b izq"><path d="M42 50 Q10 28 2 56 Q22 50 42 64Z" fill="#f4f6f8" stroke="#c9d2dc"/><path d="M12 50l4 2M20 46l4 2M28 44l4 2M18 54l4 1" stroke="#2a2a2a" stroke-width="1.6" stroke-linecap="round"/></g>' +
+      '<g class="ala-b der"><path d="M78 50 Q110 28 118 56 Q98 50 78 64Z" fill="#f4f6f8" stroke="#c9d2dc"/><path d="M108 50l-4 2M100 46l-4 2M92 44l-4 2M102 54l-4 1" stroke="#2a2a2a" stroke-width="1.6" stroke-linecap="round"/></g>' +
+      '<ellipse cx="60" cy="56" rx="24" ry="28" fill="#fbfcfd" stroke="#d5dde6"/>' +
+      '<path d="M50 62l3 2M58 66l3 2M66 62l3 2M54 72l3 2M63 73l3 2" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>' +
+      '<circle cx="51" cy="44" r="8.5" fill="#ffd23f" stroke="#e0a800"/><circle cx="69" cy="44" r="8.5" fill="#ffd23f" stroke="#e0a800"/>' +
+      '<circle cx="51.5" cy="44.5" r="4.4" fill="#1b1b1b"/><circle cx="68.5" cy="44.5" r="4.4" fill="#1b1b1b"/>' +
+      '<circle cx="53" cy="43" r="1.5" fill="#fff"/><circle cx="70" cy="43" r="1.5" fill="#fff"/>' +
+      '<path d="M57 50 L63 50 L60 55.5Z" fill="#3a3a3a"/>' +
+      '<path d="M52 82l-2 5M56 83v5M64 83v5M68 82l2 5" stroke="#9a9a9a" stroke-width="2.2" stroke-linecap="round"/>' +
       '<g transform="translate(45 86)"><rect width="30" height="18" rx="2" fill="#fbf1da" stroke="#c9a565"/><path d="M0 1 15 11 30 1" fill="none" stroke="#c9a565"/><circle cx="15" cy="11" r="3.8" fill="#b3162b"/></g>' +
     '</svg>';
 
@@ -1505,8 +1675,9 @@ a { color: inherit; }
   // ════════════════════════════ Pintar ════════════════════════════
   function esYo(nombre) { return !!yo && !yo.invitado && clave(nombre) === clave(yo.nombre); }
   function avatar(nombre) {
-    var i = PERSONAS.map(clave).indexOf(clave(nombre));
-    return i > -1 ? AVATARES[i % AVATARES.length] : '🎁';
+    var s = simbolo(nombre);
+    if (s) return icono(s);
+    return PERSONAS.map(clave).indexOf(clave(nombre)) > -1 ? '⭐' : '🎁';
   }
 
   function personasVisibles(lista) {
@@ -1530,6 +1701,12 @@ a { color: inherit; }
     var v = vista();
     var personas = personasVisibles(v.lista);
     if (!pestana || personas.map(clave).indexOf(clave(pestana)) === -1) pestana = personas[0];
+    var miTema = yo.invitado ? '' : (simbolo(yo.nombre) || '');
+    if (document.body.getAttribute('data-tema') !== miTema) {
+      document.body.setAttribute('data-tema', miTema);
+      $('#fab').innerHTML = (icono(miTema) || '<span aria-hidden="true">🪄</span>') + ' Agregar deseo';
+      ponerCursores(miTema);
+    }
     pintarCabecera();
     pintarPestanas(v.lista, personas);
     pintarLista(v);
@@ -1538,7 +1715,8 @@ a { color: inherit; }
 
   function pintarCabecera() {
     var hoy = new Date();
-    $('#sub').textContent = PERSONAS.join(' & ') + ' · Navidad ' + hoy.getFullYear();
+    $('#sub').textContent = 'Hogwarts ✦ Hyrule · Navidad ' + hoy.getFullYear();
+    if (!$('#duo').children.length) pintarDuo();
     $('#pie-nombres').textContent = PERSONAS.join(' & ');
     $('#cuenta').innerHTML = cuentaRegresiva(hoy);
     var adv = adviento(hoy);
@@ -1549,10 +1727,14 @@ a { color: inherit; }
     $('#vela-nota').textContent = adv.texto;
     $('#hola').innerHTML = 'Hola, <b>' + esc(yo.nombre) + '</b> ' + (yo.invitado ? '👋' : avatar(yo.nombre)) +
       ' <button type="button" class="mini-btn" data-accion="cambiar-persona">cambiar</button>';
-    $('#btn-magia').textContent = '✨ Magia: ' + (magia ? 'sí' : 'no');
+    $('#btn-magia').textContent = magia ? '✨ Lumos: magia encendida' : '🌙 Nox: magia en pausa';
     var atrapadas = Number(memoria.leer('esferas', 0)) || 0;
-    $('#pie-esferas').hidden = !atrapadas;
-    $('#pie-esferas').textContent = '✨ Esferas doradas atrapadas: ' + atrapadas;
+    var semillas = Number(memoria.leer('kologs', 0)) || 0;
+    var logros = [];
+    if (atrapadas) logros.push('✨ Snitch atrapadas: ' + atrapadas);
+    if (semillas) logros.push('🍃 Semillas kolog: ' + semillas);
+    $('#pie-esferas').hidden = !logros.length;
+    $('#pie-esferas').textContent = logros.join(' · ');
 
     var aviso = $('#aviso-config');
     if (MUESTRA) {
@@ -1572,6 +1754,15 @@ a { color: inherit; }
     }
   }
 
+  function pintarDuo() {
+    $('#duo').innerHTML = PERSONAS.slice(0, 2).map(function (p, i) {
+      var s = SIMBOLOS[i];
+      return '<button type="button" class="duo-lado" data-accion="emblema" data-tema="' + s + '">' +
+        '<img src="' + EMBLEMAS[s] + '" alt="' + (s === 'varita' ? 'Escudo de Hogwarts' : 'Z de Zelda con la Espada Maestra') + '">' +
+        '<span class="duo-nombre">' + icono(s) + esc(p) + '</span><small>' + MUNDOS[s] + '</small></button>';
+    }).join('<span class="duo-y" aria-hidden="true">✦</span>');
+  }
+
   function cuentaRegresiva(hoy) {
     var d = new Date(hoy.getFullYear(), hoy.getMonth(), hoy.getDate());
     var navidad = new Date(hoy.getFullYear(), 11, 25);
@@ -1587,7 +1778,7 @@ a { color: inherit; }
     $('#pestanas').innerHTML = personas.map(function (p) {
       var n = lista.filter(function (it) { return clave(it.persona) === clave(p); }).length;
       var sel = clave(p) === clave(pestana);
-      return '<button type="button" role="tab" aria-selected="' + sel + '" data-accion="pestana" data-persona="' + esc(p) + '">' +
+      return '<button type="button" role="tab" aria-selected="' + sel + '" data-accion="pestana" data-persona="' + esc(p) + '" data-tema="' + (simbolo(p) || '') + '">' +
         '<span class="ava" aria-hidden="true">' + avatar(p) + '</span>' +
         '<span>' + (esYo(p) ? 'Mi lista' : esc(p)) + '</span>' +
         '<span class="num">' + n + '</span></button>';
@@ -1605,12 +1796,14 @@ a { color: inherit; }
     deseos.sort(mia ? porPrioridad : function (a, b) { return pesoEstado(a) - pesoEstado(b) || porPrioridad(a, b); });
 
     var nombre = esc(pestana);
+    var simTab = simbolo(pestana);
+    var emb = EMBLEMAS[simTab] ? '<img class="emblema-lista" src="' + EMBLEMAS[simTab] + '" alt="">' : '';
     var cabeza;
     var resumen = [plural(deseos.length, 'deseo', 'deseos')];
     if (mia) {
-      cabeza = '<h2>Tu carta para Santa</h2><p class="pista">🤫 Hechizo sorpresa: aquí nunca verás si alguien ya te apartó o compró algo.</p>';
+      cabeza = '<h2>' + emb + 'Tu carta para Santa</h2><p class="pista">🤫 Hechizo sorpresa: aquí nunca verás si alguien ya te apartó o compró algo.</p>';
     } else {
-      cabeza = '<h2>Lo que quiere ' + nombre + '</h2><p class="pista">Aparta lo que le vas a regalar. ' + nombre + ' no lo verá 🤫</p>';
+      cabeza = '<h2>' + emb + 'Lo que quiere ' + nombre + '</h2><p class="pista">Aparta lo que le vas a regalar. ' + nombre + ' no lo verá 🤫</p>';
       var libres = deseos.filter(function (it) { return !it.estado; }).length;
       var mios = deseos.filter(function (it) { return it.estado && clave(it.reservadoPor) === clave(yo.nombre); }).length;
       if (deseos.length) resumen.push(plural(libres, 'disponible', 'disponibles'));
@@ -1675,9 +1868,10 @@ a { color: inherit; }
 
     var lacre = '';
     if (tomado) {
-      lacre = it.estado === 'comprado'
-        ? '<span class="mono verde" aria-hidden="true">✓</span>'
-        : '<span class="mono" aria-hidden="true">' + esc(inicial(it.reservadoPor) || '♥') + '</span>';
+      var simR = simbolo(it.reservadoPor);
+      if (it.estado === 'comprado') lacre = '<span class="mono oro" aria-hidden="true">✓</span>';
+      else if (simR) lacre = '<span class="mono ' + simR + '" aria-hidden="true">' + icono(simR, true) + '</span>';
+      else lacre = '<span class="mono invitado" aria-hidden="true">' + esc(inicial(it.reservadoPor) || '♥') + '</span>';
     }
 
     return '<article class="deseo' + (tomado ? ' tomado' : '') + (porMi ? ' por-mi' : '') +
@@ -1797,13 +1991,34 @@ a { color: inherit; }
     setTimeout(function () { b.remove(); }, 3000);
   }
 
+  function volarHada() {
+    if (!magiaActiva()) return;
+    var f = document.createElement('div');
+    f.className = 'hada-vuelo';
+    f.setAttribute('aria-hidden', 'true');
+    f.innerHTML = '<span class="hada-ala izq"></span><span class="hada-ala der"></span><span class="hada-luz"></span>';
+    document.body.appendChild(f);
+    var estela = setInterval(function () {
+      var r = f.getBoundingClientRect();
+      chispas(r.left + r.width / 2, r.top + r.height / 2, 2);
+    }, 90);
+    setTimeout(function () { clearInterval(estela); f.remove(); }, 2700);
+  }
+
   var timerCofre;
-  function abrirCofre(it) {
+  /** tipo "cofre" (regalo de Hyrule) o "hechizo" (regalo de Hogwarts: ¡Accio!) */
+  function abrirCofre(it, tipo) {
     if (!magiaActiva()) return false;
+    tipo = tipo === 'hechizo' ? 'hechizo' : 'cofre';
+    var s = simbolo(it.persona);
     $('#cofre-objeto').textContent = emojiDe(it.categoria);
     $('#cofre-titulo').textContent = it.titulo;
-    $('#cofre-sub').textContent = it.persona + ' no lo verá 🤫';
+    $('#cofre-encabezado').textContent = tipo === 'hechizo' ? '¡Accio regalo! 🪄' : '¡Conseguiste un regalo!';
+    $('#cofre-sub').textContent = it.persona + ' no lo verá 🤫' + (tipo === 'hechizo' ? ' · Travesura realizada' : '');
+    var emb = $('#cofre-emblema');
+    if (EMBLEMAS[s]) { emb.src = EMBLEMAS[s]; emb.hidden = false; } else { emb.hidden = true; }
     var c = $('#cofre');
+    c.setAttribute('data-tipo', tipo);
     c.classList.remove('cerrando');
     c.hidden = false;
     clearTimeout(timerCofre);
@@ -1828,7 +2043,7 @@ a { color: inherit; }
   function hablarHada(texto) {
     if (!magiaActiva()) return;
     var b = $('#burbuja');
-    b.textContent = texto || CONSEJOS[consejo++ % CONSEJOS.length];
+    b.innerHTML = '<b>¡Hey! ¡Listen!</b>' + esc(texto || CONSEJOS[consejo++ % CONSEJOS.length]);
     b.hidden = true;
     void b.offsetWidth;
     b.hidden = false;
@@ -1893,7 +2108,7 @@ a { color: inherit; }
     chispas(r.left + r.width / 2, r.top + r.height / 2, 18);
     var n = (Number(memoria.leer('esferas', 0)) || 0) + 1;
     memoria.escribir('esferas', n);
-    avisar('✨ ¡Atrapaste la esfera dorada! Llevas ' + n);
+    avisar('✨ ¡Atrapaste la snitch dorada! Llevas ' + n);
     setTimeout(function () { el.hidden = true; el.classList.remove('atrapada'); }, 450);
     if (yo) pintarCabecera();
     programarEsfera(false);
@@ -1902,12 +2117,16 @@ a { color: inherit; }
 
   // ════════════════════════════ ¿Quién eres? ════════════════════════════
   function mostrarQuien() {
-    $('#quien-pre').textContent = 'Navidad ' + new Date().getFullYear();
+    $('#quien-pre').textContent = 'Navidad ' + new Date().getFullYear() + ' · Hogwarts ✦ Hyrule';
     $('#quien-personas').innerHTML = PERSONAS.map(function (p) {
-      return '<button type="button" class="persona-btn carta" data-accion="soy" data-nombre="' + esc(p) + '">' +
+      var s = simbolo(p);
+      return '<button type="button" class="persona-btn carta' + (s ? ' tema-' + s : '') + '" data-accion="soy" data-nombre="' + esc(p) + '">' +
         '<span class="sobre" aria-hidden="true"><span class="sobre-fondo"></span><span class="sobre-carta"></span>' +
-        '<span class="sobre-frente"></span><span class="sobre-solapa"></span><span class="lacre">' + esc(inicial(p)) + '</span></span>' +
-        '<span class="carta-nombre">' + esc(p) + '</span></button>';
+        '<span class="sobre-frente"></span><span class="sobre-solapa"></span>' +
+        (EMBLEMAS[s] ? '<img class="estampilla" src="' + EMBLEMAS[s] + '" alt="">' : '') +
+        '<span class="lacre">' + (s ? icono(s, true) : esc(inicial(p))) + '</span></span>' +
+        '<span class="carta-nombre">' + esc(p) + '</span>' +
+        (s ? '<span class="carta-mundo">' + DETALLE[s] + '</span>' : '') + '</button>';
     }).join('');
     $('#form-invitado').hidden = true;
     $('#quien').hidden = false;
@@ -2024,7 +2243,10 @@ a { color: inherit; }
       encolar({ op: 'add', id: nuevo.id, data: nuevo });
       recienAgregado = nuevo.id;
       setTimeout(function () { recienAgregado = null; }, 900);
-      if (magiaActiva()) {
+      if (magiaActiva() && simbolo(yo.nombre) === 'espada') {
+        volarHada();
+        avisar('🧚 ¡Deseo guardado en tu inventario!');
+      } else if (magiaActiva()) {
         volarBuho();
         avisar('🦉 ¡Tu deseo va volando a tu carta!');
       } else {
@@ -2075,7 +2297,7 @@ a { color: inherit; }
       sellar(it.id);
       pintar();
       sincronizarPronto();
-      if (!abrirCofre(it)) avisar('🎁 ¡Apartado! ' + it.persona + ' no lo verá 🤫');
+      if (!abrirCofre(it, simbolo(it.persona) === 'varita' ? 'hechizo' : 'cofre')) avisar('🎁 ¡Apartado! ' + it.persona + ' no lo verá 🤫');
     },
     'comprado': function (b) {
       cambiarReserva(b.getAttribute('data-id'), { estado: 'comprado' }, '✅ ¡Marcado como comprado!');
@@ -2117,11 +2339,51 @@ a { color: inherit; }
       memoria.escribir('magia', magia);
       aplicarMagia();
       pintarCabecera();
-      avisar(magia ? '✨ ¡Volvió la magia!' : 'Magia en pausa: todo quieto para ahorrar batería');
+      avisar(magia ? '✨ ¡Lumos! Volvió la magia' : '🌙 Nox: todo quieto para ahorrar batería');
     },
     'hada': function () { hablarHada(); },
-    'cerrar-cofre': cerrarCofre
+    'cerrar-cofre': cerrarCofre,
+    'emblema': function (b) {
+      var s = b.getAttribute('data-tema');
+      var frases = FRASES[s] || FRASES.varita;
+      var n = (contadorFrases[s] = (contadorFrases[s] || 0) + 1);
+      var r = b.getBoundingClientRect();
+      chispas(r.left + r.width / 2, r.top + r.height * 0.4, 16);
+      b.classList.remove('toque');
+      void b.offsetWidth;
+      b.classList.add('toque');
+      avisar(frases[(n - 1) % frases.length]);
+    },
+    'kolog': function (b) {
+      var r = b.getBoundingClientRect();
+      chispas(r.left + r.width / 2, r.top + r.height / 2, 14);
+      var n = (Number(memoria.leer('kologs', 0)) || 0) + 1;
+      memoria.escribir('kologs', n);
+      avisar('🍃 ¡Yahaha! ¡Me encontraste! · Semillas kolog: ' + n);
+      b.hidden = true;
+      posKolog++;
+      setTimeout(function () { moverKolog(); b.hidden = false; }, 25000);
+      if (yo) pintarCabecera();
+    },
+    'pedestal': function (b) {
+      var r = b.getBoundingClientRect();
+      chispas(r.left + r.width / 2, r.top + r.height / 3, 16);
+      avisar('⚔️ ¡Es peligroso ir solo! Toma esto.');
+    },
+    'anden': function (b) {
+      var r = b.getBoundingClientRect();
+      chispas(r.left + r.width / 2, r.top + r.height / 2, 12);
+      avisar('🧱 Andén 9¾: corre hacia la pared… ¡con fe! ✨');
+    }
   };
+  var contadorFrases = {};
+  var posKolog = Math.floor(Math.random() * POS_KOLOG.length);
+  function moverKolog() {
+    var p = POS_KOLOG[posKolog % POS_KOLOG.length];
+    var k = $('#kolog');
+    k.style.left = p[0] + '%';
+    k.style.bottom = p[1] + '%';
+  }
 
   function cambiarReserva(id, cambios, mensaje) {
     var it = buscar(id);
@@ -2278,8 +2540,23 @@ a { color: inherit; }
     }).join('');
   }
 
-  function ponerCursores() {
-    var varita = "<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'>" +
+  /** El cursor (en compu) es la varita para Andrea y la Espada Maestra para David. */
+  function ponerCursores(tema) {
+    if (tema === 'espada') {
+      var espada = "<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'>" +
+        "<path d='M3 3 L19 19' stroke='#2b3540' stroke-width='5' stroke-linecap='round'/>" +
+        "<path d='M3 3 L19 19' stroke='#eef3f8' stroke-width='3' stroke-linecap='round'/>" +
+        "<path d='M15 23 L23 15' stroke='#2b2266' stroke-width='5' stroke-linecap='round'/>" +
+        "<path d='M15 23 L23 15' stroke='#6b5fd3' stroke-width='3' stroke-linecap='round'/>" +
+        "<path d='M20 20 L28 28' stroke='#2b2266' stroke-width='4.6' stroke-linecap='round'/>" +
+        "<path d='M20 20 L28 28' stroke='#4b3d9e' stroke-width='2.6' stroke-linecap='round'/>" +
+        "<circle cx='19' cy='19' r='1.9' fill='#ffd84a'/></svg>";
+      var url = 'url("data:image/svg+xml,' + encodeURIComponent(espada) + '") 3 3';
+      document.documentElement.style.setProperty('--cursor-varita', url + ', auto');
+      document.documentElement.style.setProperty('--cursor-varita-luz', url + ', pointer');
+      return;
+    }
+    var varita ="<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'>" +
       "<path d='M6 6 L27 27' stroke='#1a0f08' stroke-width='5' stroke-linecap='round'/>" +
       "<path d='M6 6 L27 27' stroke='#5a3a1e' stroke-width='3' stroke-linecap='round'/>" +
       "<path d='M19 19 L27 27' stroke='#8a5a2e' stroke-width='3.4' stroke-linecap='round'/>" +
@@ -2309,7 +2586,8 @@ a { color: inherit; }
 
   // ════════════════════════════ Arranque ════════════════════════════
   colgarVelas();
-  ponerCursores();
+  ponerCursores(yo && !yo.invitado ? simbolo(yo.nombre) : 'varita');
+  moverKolog();
   aplicarMagia();
 
   if (yo) {

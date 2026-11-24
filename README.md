@@ -7,21 +7,25 @@ La página vive en **GitHub Pages** y todo se guarda en una **hoja de Google She
 
 ## ✨ Qué hace
 
-Una Navidad mágica de castillo: cielo estrellado con nieve, velas flotantes y deseos escritos en pergamino. Todos los dibujos son originales.
+Una Navidad mágica **mitad Hogwarts, mitad Hyrule**: Andrea es de Hogwarts y su símbolo es la **varita** 🪄; David es de Hyrule y el suyo es la **Espada Maestra** ⚔️. Cielo estrellado con nieve, velas flotantes, deseos escritos en pergamino y un castillo nevado que comparten los dos mundos.
 
-- ✉️ **Cartas con lacre:** cada quien abre su carta (Andrea o David) una sola vez en su teléfono.
-- ✍️ **Deseos completos:** qué es, tipo de regalo, cuánto lo quieres (❤️ a ❤️❤️❤️), precio aproximado (con una gema que cambia de color según el precio), link de la tienda y notas (talla, color…).
-- 🎁 **Apartar regalos:** en la lista del otro tocas *"Yo se lo regalo"*, se abre un cofre del tesoro y el deseo queda sellado con lacre. Después marcas *"Ya lo compré"*.
+- ✉️ **Cartas con lacre:** cada quien abre su carta una sola vez en su teléfono. La de Andrea lleva el escudo de Hogwarts y lacre rojo con la varita; la de David, la Z de Hyrule y lacre verde con la espada.
+- 🛡️ **Escudos de Hogwarts y Hyrule** arriba: tócalos y sueltan un hechizo o una frase de Hyrule.
+- ✍️ **Deseos completos:** qué es, tipo de regalo, cuánto lo quieres (❤️ a ❤️❤️❤️, como los corazones de Zelda), precio aproximado (con una rupia que cambia de color según el precio), link de la tienda y notas (talla, color…).
+- 🎁 **Apartar regalos:** en la lista del otro tocas *"Yo se lo regalo"*. Si es de Hyrule se abre **un cofre del tesoro**; si es de Hogwarts, **"¡Accio regalo!"** con la varita. El deseo queda sellado con el lacre de quien lo va a regalar. Después marcas *"Ya lo compré"*.
 - 🤫 **Hechizo sorpresa:** en tu propia lista **nunca** ves qué te apartaron o compraron.
-- 🦉 **Lechuza mensajera:** cruza la pantalla con tu carta cada vez que agregas un deseo.
-- 🧚 **Hada guía:** tócala y te da consejos.
-- 🟡 **Esfera dorada con alas:** de vez en cuando cruza volando… ¡atrápala! La página lleva la cuenta.
+- 🦉 **Al agregar un deseo:** a Andrea le cruza la pantalla una lechuza blanca con la carta; a David, un hada.
+- 🧚 **Hada guía:** "¡Hey! ¡Listen!"… tócala y te da consejos.
+- ✨ **Snitch dorada:** de vez en cuando cruza volando, ¡atrápala!
+- 🍃 **Secretos del castillo:** una hoja traviesa que se esconde ("¡Yahaha!"), la Espada Maestra en su pedestal y el andén 9¾. La página lleva la cuenta de snitches y semillas.
 - 🕯️ **Corona de Adviento:** se enciende una vela cada domingo de Adviento, junto a la cuenta regresiva a Navidad.
-- 🪄 En la compu, el cursor es una varita que deja chispas.
+- 🪄 En la compu, el cursor es la varita (Andrea) o la espada (David) y deja chispas.
 - 👀 **Familia y amigos** pueden entrar como invitados para ver las listas y apartar regalos (no se duplican: si dos aprietan al mismo tiempo, gana el primero).
 - ☁️ **No se pierde nada:** todo queda en Google Sheets. Sin internet, el teléfono guarda los cambios y los sube solo cuando vuelve la conexión.
 - 📱 **Como app:** se puede agregar a la pantalla de inicio del iPhone y abre aunque no haya internet.
-- 🔋 Abajo hay un botón **"✨ Magia: sí/no"** para pausar las animaciones y ahorrar batería.
+- 🔋 Abajo, **"Nox"** pausa las animaciones para ahorrar batería y **"Lumos"** las vuelve a prender.
+
+> Los escudos de Hogwarts y de Zelda pertenecen a sus dueños (Warner Bros. y Nintendo). Están aquí solo como decoración de esta página personal; los demás dibujos son originales.
 
 ---
 
