@@ -1013,7 +1013,8 @@ a { color: inherit; }
 
   // ════════════════════════════ Configuración ════════════════════════════
   var CFG = window.WISHLIST_CONFIG || {};
-  var SCRIPT_URL = String(CFG.SCRIPT_URL || '').trim();
+  // Las URLs copiadas con varias cuentas abiertas traen "/u/1/": la quitamos para que funcione para todos.
+  var SCRIPT_URL = String(CFG.SCRIPT_URL || '').trim().replace(/\/macros\/u\/\d+\/s\//, '/macros/s/');
   var URL_VALIDA = /^https?:\/\/\S+\/macros\/s\/[^/\s]+\/(exec|dev)(\?\S*)?$/.test(SCRIPT_URL);
   var MODO_LOCAL = !URL_VALIDA;
   var URL_MAL_PUESTA = SCRIPT_URL !== '' && !URL_VALIDA;

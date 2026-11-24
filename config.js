@@ -9,7 +9,7 @@ window.WISHLIST_CONFIG = {
   // 1) La URL de tu Apps Script (Implementar → Aplicación web). Termina en /exec
   //    Ejemplo: "https://script.google.com/macros/s/AKfycbx.../exec"
   //    Mientras esté vacía, la página funciona en "modo prueba" (solo guarda en el teléfono).
-  SCRIPT_URL: "",
+  SCRIPT_URL: "https://script.google.com/macros/s/AKfycbzckCvC6GSM9mXCN7SPsyGMsNNIQO8MsdIpy7eva9AchMgI4GIUhaJs4IcDB3BnkeEFTQ/exec",
 
   // 2) Los nombres de las listas. Si algún día cambias un nombre, cámbialo
   //    también en la columna "Persona" de la hoja para que sus deseos lo sigan.
